@@ -1,5 +1,4 @@
-import { state, memo } from "organic-ui/reactivity"
-import { div, input, p } from "organic-ui/components"
+import { h, state, memo } from "organic-ui"
 
 export function MemoExample() {
   const [firstName, setFirstName] = state("John")
@@ -27,7 +26,7 @@ export function MemoExample() {
     return `Hello, ${fullName()}! You are ${age()} years old.`
   })
   
-  return div({
+  return h.div({
     style: {
       padding: "20px",
       border: "2px solid #3b82f6",
@@ -36,7 +35,7 @@ export function MemoExample() {
       fontFamily: "sans-serif"
     },
     children: [
-      div({
+      h.div({
         text: "Memo Example",
         style: {
           fontSize: "20px",
@@ -46,7 +45,7 @@ export function MemoExample() {
         }
       }),
       
-      p({
+      h.p({
         text: "Open the console to see when memos recompute!",
         style: {
           fontSize: "14px",
@@ -57,10 +56,10 @@ export function MemoExample() {
       }),
       
       // First Name Input
-      div({
+      h.div({
         style: { marginBottom: "12px" },
         children: [
-          div({
+          h.div({
             text: "First Name:",
             style: {
               fontSize: "14px",
@@ -68,7 +67,7 @@ export function MemoExample() {
               marginBottom: "4px"
             }
           }),
-          input({
+          h.input({
             type: "text",
             value: firstName,
             onInput: (value) => setFirstName(value),
@@ -84,10 +83,10 @@ export function MemoExample() {
       }),
       
       // Last Name Input
-      div({
+      h.div({
         style: { marginBottom: "12px" },
         children: [
-          div({
+          h.div({
             text: "Last Name:",
             style: {
               fontSize: "14px",
@@ -95,7 +94,7 @@ export function MemoExample() {
               marginBottom: "4px"
             }
           }),
-          input({
+          h.input({
             type: "text",
             value: lastName,
             onInput: (value) => setLastName(value),
@@ -111,10 +110,10 @@ export function MemoExample() {
       }),
       
       // Age Input
-      div({
+      h.div({
         style: { marginBottom: "16px" },
         children: [
-          div({
+          h.div({
             text: "Age:",
             style: {
               fontSize: "14px",
@@ -122,7 +121,7 @@ export function MemoExample() {
               marginBottom: "4px"
             }
           }),
-          input({
+          h.input({
             type: "number",
             value: age,
             onInput: (value) => setAge(Number(value)),
@@ -138,7 +137,7 @@ export function MemoExample() {
       }),
       
       // Results
-      div({
+      h.div({
         style: {
           padding: "16px",
           backgroundColor: "#f0f9ff",
@@ -146,7 +145,7 @@ export function MemoExample() {
           border: "1px solid #bae6fd"
         },
         children: [
-          p({
+          h.p({
             text: () => `Full Name: ${fullName()}`,
             style: {
               margin: "0 0 8px 0",
@@ -154,14 +153,14 @@ export function MemoExample() {
               fontWeight: "600"
             }
           }),
-          p({
+          h.p({
             text: () => greeting(),
             style: {
               margin: "0 0 12px 0",
               fontSize: "14px"
             }
           }),
-          div({
+          h.div({
             style: {
               fontSize: "12px",
               color: "#666",
@@ -169,11 +168,11 @@ export function MemoExample() {
               paddingTop: "12px"
             },
             children: [
-              p({
+              h.p({
                 text: () => `fullName computed: ${fullNameComputeCount()} times`,
                 style: { margin: "0 0 4px 0" }
               }),
-              p({
+              h.p({
                 text: () => `greeting computed: ${greetingComputeCount()} times`,
                 style: { margin: "0" }
               })
@@ -182,7 +181,7 @@ export function MemoExample() {
         ]
       }),
       
-      div({
+      h.div({
         style: {
           marginTop: "12px",
           padding: "12px",
@@ -192,22 +191,22 @@ export function MemoExample() {
           color: "#92400e"
         },
         children: [
-          div({
+          h.div({
             text: "💡 Try this:",
             style: {
               fontWeight: "600",
               marginBottom: "4px"
             }
           }),
-          div({
+          h.div({
             text: "1. Change age → greeting recomputes, but fullName doesn't!",
             style: { marginBottom: "2px" }
           }),
-          div({
+          h.div({
             text: "2. Change firstName → both fullName and greeting recompute",
             style: { marginBottom: "2px" }
           }),
-          div({
+          h.div({
             text: "3. Check console to see computation logs",
             style: {}
           })

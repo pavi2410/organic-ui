@@ -1,4 +1,4 @@
-import { render } from "organic-ui/renderer"
+import { render } from "organic-ui"
 import { DocsApp } from "./DocsApp.js"
 import "./style.css"
 

@@ -1,7 +1,7 @@
-import { div } from "organic-ui/components"
+import { h } from "organic-ui"
 import { cn } from "../lib/utils.js"
 
-// Helper to convert children to the format expected by div
+// Helper to convert children to the format expected by h.div
 function toChildren(children: any): any {
   if (children == null) return undefined
   if (typeof children === 'string') return undefined // Will use text prop instead
@@ -38,7 +38,7 @@ function CardRoot({
     divProps.children = toChildren(children)
   }
   
-  return div(divProps)
+  return h.div(divProps)
 }
 
 export interface CardHeaderProps {
@@ -63,7 +63,7 @@ export function CardHeader({
     divProps.children = toChildren(children)
   }
   
-  return div(divProps)
+  return h.div(divProps)
 }
 
 export interface CardTitleProps {
@@ -88,7 +88,7 @@ export function CardTitle({
     divProps.children = toChildren(children)
   }
   
-  return div(divProps)
+  return h.div(divProps)
 }
 
 export interface CardDescriptionProps {
@@ -113,7 +113,7 @@ export function CardDescription({
     divProps.children = toChildren(children)
   }
   
-  return div(divProps)
+  return h.div(divProps)
 }
 
 export interface CardContentProps {
@@ -138,7 +138,7 @@ export function CardContent({
     divProps.children = toChildren(children)
   }
   
-  return div(divProps)
+  return h.div(divProps)
 }
 
 export interface CardFooterProps {
@@ -163,7 +163,7 @@ function CardFooter({
     divProps.children = toChildren(children)
   }
   
-  return div(divProps)
+  return h.div(divProps)
 }
 
 export const Card = {

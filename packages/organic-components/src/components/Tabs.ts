@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "cva"
-import { div } from "organic-ui/components"
+import { h } from "organic-ui"
 import { cn } from "../lib/utils.js"
 
 const tabsListVariants = cva({
@@ -18,7 +18,7 @@ export function TabsList({
   children,
   ...props
 }: TabsListProps) {
-  return div({
+  return h.div({
     class: cn(tabsListVariants(), className),
     children,
     ...props
@@ -51,7 +51,7 @@ export function TabsTrigger({
   onClick,
   ...props
 }: TabsTriggerProps) {
-  return div({
+  return h.div({
     class: cn(tabsTriggerVariants({ active }), className),
     children,
     onClick,
@@ -71,7 +71,7 @@ export function TabsContent({
   active,
   ...props
 }: TabsContentProps) {
-  return div({
+  return h.div({
     class: cn("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2", !active && "hidden", className),
     children,
     ...props
@@ -92,7 +92,7 @@ function TabsRoot({
   children,
   ...props
 }: TabsProps) {
-  return div({
+  return h.div({
     class: className,
     children,
     ...props

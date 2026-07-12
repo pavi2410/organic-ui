@@ -1,4 +1,4 @@
-import { div } from "organic-ui/components"
+import { h } from "organic-ui"
 import { Counter } from "../components/Counter.js"
 import { Accordion } from "../components/Accordion.js"
 import { TodoList } from "../components/TodoList.js"
@@ -15,14 +15,14 @@ import metronomeCode from "../components/Metronome.ts?raw"
 import memoExampleCode from "../components/MemoExample.ts?raw"
 
 export function Examples() {
-  return div({
+  return h.div({
     children: [
-      div({
+      h.div({
         text: "Examples",
         class: "docs-page-title"
       }),
       
-      div({
+      h.div({
         id: "counter",
         text: "Counter",
         class: "docs-section-title"
@@ -32,13 +32,13 @@ export function Examples() {
         code: counterCode
       }),
       
-      div({
+      h.div({
         id: "accordion",
         text: "Accordion",
         class: "docs-section-title"
       }),
       ExampleTabs({
-        preview: () => div({
+        preview: () => h.div({
           children: [
             Accordion({
               title: "What is organic-ui?",
@@ -53,7 +53,7 @@ export function Examples() {
         code: accordionCode
       }),
       
-      div({
+      h.div({
         id: "html-demo",
         text: "HTML Component Demo",
         class: "docs-section-title"
@@ -63,7 +63,7 @@ export function Examples() {
         code: htmlDemoCode
       }),
       
-      div({
+      h.div({
         id: "todo-list",
         text: "Todo List",
         class: "docs-section-title"
@@ -73,7 +73,7 @@ export function Examples() {
         code: todoListCode
       }),
       
-      div({
+      h.div({
         id: "metronome",
         text: "Metronome (Effect Cleanup)",
         class: "docs-section-title"
@@ -83,7 +83,7 @@ export function Examples() {
         code: metronomeCode
       }),
       
-      div({
+      h.div({
         id: "memo-example",
         text: "Memo (Computed Values)",
         class: "docs-section-title"

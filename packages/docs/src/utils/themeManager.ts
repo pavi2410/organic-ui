@@ -1,4 +1,4 @@
-import { state } from "organic-ui/reactivity"
+import { state } from "organic-ui"
 
 export type Theme = "light" | "dark"
 

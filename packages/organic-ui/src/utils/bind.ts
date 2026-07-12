@@ -40,6 +40,27 @@ export function bindAssign<T extends object>(
   }
 }
 
+/**
+ * Helper to bind a reactive or static value to an element attribute
+ * Removes the attribute if the value is null, undefined, or false
+ * 
+ * @example
+ * bindAttr(el, 'disabled', () => isDisabled())
+ */
+export function bindAttr(
+  el: Element,
+  name: string,
+  value: string | number | boolean | (() => string | number | boolean)
+): void {
+  bind(value, (v) => {
+    if (v == null || v === false) {
+      el.removeAttribute(name)
+    } else {
+      el.setAttribute(name, String(v))
+    }
+  })
+}
+
 // TODO: Implement bind(el, obj) for binding multiple properties at once
 // Example usage:
 // bind(el, {

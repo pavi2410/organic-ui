@@ -1,5 +1,4 @@
-import { button } from "organic-ui/components"
-import { state } from "organic-ui/reactivity"
+import { h, state } from "organic-ui"
 
 export function CopyButton(code: string) {
   const [buttonText, setButtonText] = state("Copy")
@@ -19,7 +18,7 @@ export function CopyButton(code: string) {
     }
   }
 
-  return button({
+  return h.button({
     text: buttonText,
     onClick: handleCopy,
     class: "code-copy-button",

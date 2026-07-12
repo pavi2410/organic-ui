@@ -1,20 +1,19 @@
-import { state } from "organic-ui/reactivity"
-import { div, p, Show } from "organic-ui/components"
+import { h, state, Show } from "organic-ui"
 
 export function Accordion({ title, content }: { title: string; content: () => string }) {
   const [open, setOpen] = state(false)
 
-  return div({
+  return h.div({
     class: "accordion",
     children: [
-      div({
+      h.div({
         text: title,
         class: "accordion-header",
         onClick: () => setOpen(isOpen => !isOpen)
       }),
       Show({
         when: open,
-        children: p({
+        children: h.p({
           text: content,
           class: "accordion-content"
         })

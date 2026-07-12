@@ -1,5 +1,5 @@
 import { cva } from "cva"
-import { div, button } from "organic-ui/components"
+import { h } from "organic-ui"
 import { cn } from "../lib/utils.js"
 
 const dialogVariants = cva({
@@ -22,14 +22,14 @@ function DialogRoot({
 }: DialogProps) {
   if (!open) return null
 
-  return div({
+  return h.div({
     class: "fixed inset-0 z-50 bg-background/80 backdrop-blur-sm",
     children: [
-      div({
+      h.div({
         class: cn(dialogVariants(), className),
         children,
         ...props
-      })
+      } as any)
     ]
   })
 }
@@ -44,11 +44,11 @@ export function DialogHeader({
   children,
   ...props
 }: DialogHeaderProps) {
-  return div({
+  return h.div({
     class: cn("flex flex-col space-y-1.5 text-center sm:text-left", className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export interface DialogTitleProps {
@@ -61,11 +61,11 @@ export function DialogTitle({
   children,
   ...props
 }: DialogTitleProps) {
-  return div({
+  return h.div({
     class: cn("text-lg font-semibold leading-none tracking-tight", className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export interface DialogDescriptionProps {
@@ -78,11 +78,11 @@ export function DialogDescription({
   children,
   ...props
 }: DialogDescriptionProps) {
-  return div({
+  return h.div({
     class: cn("text-sm text-muted-foreground", className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export interface DialogContentProps {
@@ -95,11 +95,11 @@ export function DialogContent({
   children,
   ...props
 }: DialogContentProps) {
-  return div({
+  return h.div({
     class: cn("grid gap-4 py-4", className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export interface DialogFooterProps {
@@ -112,11 +112,11 @@ export function DialogFooter({
   children,
   ...props
 }: DialogFooterProps) {
-  return div({
+  return h.div({
     class: cn("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export interface DialogCloseProps {
@@ -131,12 +131,12 @@ export function DialogClose({
   onClick,
   ...props
 }: DialogCloseProps) {
-  return button({
+  return h.button({
     class: cn("absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground", className),
     onClick,
-    children: children || "×",
+    text: children || "×",
     ...props
-  })
+  } as any)
 }
 
 export const Dialog = {

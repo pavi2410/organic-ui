@@ -1,5 +1,6 @@
 import { cva, type VariantProps } from "cva"
-import { button } from "organic-ui/components"
+import { h } from "organic-ui"
+import type { Renderable } from "organic-ui"
 import { cn } from "../lib/utils.js"
 
 const buttonVariants = cva({
@@ -31,10 +32,11 @@ const buttonVariants = cva({
 
 export interface ButtonProps extends VariantProps<typeof buttonVariants> {
   class?: string
-  children?: any
-  onClick?: () => void
+  children?: Renderable[]
+  onClick?: (e: MouseEvent) => void
   disabled?: boolean
-  type?: "button" | "submit" | "reset"
+  type?: 'button' | 'submit' | 'reset'
+  [key: string]: any
 }
 
 export function Button({
@@ -47,21 +49,12 @@ export function Button({
   type = "button",
   ...props
 }: ButtonProps) {
-  const buttonProps: any = {
+  return h.button({
     class: cn(buttonVariants({ variant, size, className })),
-    ...props
-  }
-  
-  if (onClick) {
-    buttonProps.onClick = onClick
-  }
-  
-  // If children is a string, use text prop; otherwise use children prop
-  if (typeof children === 'string') {
-    buttonProps.text = children
-  } else if (children) {
-    buttonProps.children = Array.isArray(children) ? children : [children]
-  }
-  
-  return button(buttonProps)
+    ...props,
+    type,
+    disabled,
+    onClick: (e: MouseEvent) => onClick?.(e),
+    children: children ? (Array.isArray(children) ? children : [children]) : undefined
+  } as any)
 }

@@ -1,4 +1,4 @@
-import { div } from "organic-ui/components"
+import { h } from "organic-ui"
 import { cn } from "../lib/utils.js"
 
 export interface LabelProps {
@@ -12,7 +12,7 @@ export function Label({
   children,
   ...props
 }: LabelProps) {
-  const divProps: any = {
+  const labelProps: any = {
     class: cn(
       "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
       className
@@ -22,10 +22,10 @@ export function Label({
   
   // Handle string children
   if (typeof children === 'string') {
-    divProps.text = children
+    labelProps.text = children
   } else if (children) {
-    divProps.children = Array.isArray(children) ? children : [children]
+    labelProps.children = Array.isArray(children) ? children : [children]
   }
   
-  return div(divProps)
+  return h.label(labelProps)
 }

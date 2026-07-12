@@ -1,5 +1,4 @@
-import { state } from "organic-ui/reactivity"
-import { div, button, For } from "organic-ui/components"
+import { h, state, For } from "organic-ui"
 
 interface BenchmarkResult {
   name: string
@@ -204,7 +203,7 @@ export function Benchmarks() {
           const [data] = state(buildData(1000))
           const list = For({
             each: data,
-            children: (item) => div({ 
+            children: (item) => h.div({ 
               text: () => `${item.id} - ${item.label}`
             })
           })
@@ -247,7 +246,7 @@ export function Benchmarks() {
         const [data, setData] = state(buildData(1000))
         const list = For({
           each: data,
-          children: (item) => div({ text: () => `${item.id} - ${item.label}` })
+          children: (item) => h.div({ text: () => `${item.id} - ${item.label}` })
         })
         const cleanup = list.mount(container)
         
@@ -296,7 +295,7 @@ export function Benchmarks() {
         const [data, setData] = state(buildData(10000))
         const list = For({
           each: data,
-          children: (item) => div({ text: () => `${item.id} - ${item.label}` })
+          children: (item) => h.div({ text: () => `${item.id} - ${item.label}` })
         })
         const cleanup = list.mount(container)
         
@@ -347,7 +346,7 @@ export function Benchmarks() {
         const [data, setData] = state(buildData(1000))
         const list = For({
           each: data,
-          children: (item) => div({ text: () => `${item.id} - ${item.label}` })
+          children: (item) => h.div({ text: () => `${item.id} - ${item.label}` })
         })
         const cleanup = list.mount(container)
         
@@ -408,7 +407,7 @@ export function Benchmarks() {
         const [data, setData] = state(buildData(1000))
         const list = For({
           each: data,
-          children: (item) => div({ text: () => `${item.id} - ${item.label}` })
+          children: (item) => h.div({ text: () => `${item.id} - ${item.label}` })
         })
         const cleanup = list.mount(container)
         
@@ -458,7 +457,7 @@ export function Benchmarks() {
           const [data] = state(buildData(10000))
           const list = For({
             each: data,
-            children: (item) => div({ text: () => `${item.id} - ${item.label}` })
+            children: (item) => h.div({ text: () => `${item.id} - ${item.label}` })
           })
           const cleanup = list.mount(container)
           cleanup()
@@ -499,7 +498,7 @@ export function Benchmarks() {
         const [data, setData] = state(buildData(10000))
         const list = For({
           each: data,
-          children: (item) => div({ text: () => `${item.id} - ${item.label}` })
+          children: (item) => h.div({ text: () => `${item.id} - ${item.label}` })
         })
         const cleanup = list.mount(container)
         
@@ -548,7 +547,7 @@ export function Benchmarks() {
         const [data, setData] = state(buildData(10000))
         const list = For({
           each: data,
-          children: (item) => div({ text: () => `${item.id} - ${item.label}` })
+          children: (item) => h.div({ text: () => `${item.id} - ${item.label}` })
         })
         const cleanup = list.mount(container)
         
@@ -639,12 +638,12 @@ export function Benchmarks() {
   }
   
   
-  return div({
+  return h.div({
     children: [
       // Header
-      div({
+      h.div({
         children: [
-          div({
+          h.div({
             text: "Performance Benchmarks",
             style: {
               fontSize: "32px",
@@ -653,7 +652,7 @@ export function Benchmarks() {
               color: "#2c3e50"
             }
           }),
-          div({
+          h.div({
             text: "Following js-framework-benchmark specification",
             style: {
               fontSize: "16px",
@@ -665,10 +664,10 @@ export function Benchmarks() {
       }),
       
       // Results Table
-      div({
+      h.div({
         children: [
           // Header with button
-          div({
+          h.div({
             style: {
               display: "flex",
               justifyContent: "space-between",
@@ -676,7 +675,7 @@ export function Benchmarks() {
               marginBottom: "20px"
             },
             children: [
-              div({
+              h.div({
                 text: "Benchmark Results",
                 style: {
                   fontSize: "24px",
@@ -684,21 +683,21 @@ export function Benchmarks() {
                   color: "#2c3e50"
                 }
               }),
-              div({
+              h.div({
                 style: {
                   display: "flex",
                   gap: "10px",
                   alignItems: "center"
                 },
                 children: [
-                  div({
+                  h.div({
                     text: () => running() ? `Running: ${running()}` : results().length > 0 ? `✓ ${results().length}/${benchmarks.length} completed` : "",
                     style: {
                       color: "#666",
                       fontSize: "14px"
                     }
                   }),
-                  button({
+                  h.button({
                     text: () => running() ? "Running..." : "Run All",
                     onClick: runAllBenchmarks,
                     style: () => ({
@@ -716,7 +715,7 @@ export function Benchmarks() {
               })
             ]
           }),
-          div({
+          h.div({
             style: {
               background: "white",
               border: "1px solid #e0e0e0",
@@ -725,7 +724,7 @@ export function Benchmarks() {
             },
             children: [
               // Table header
-              div({
+              h.div({
                 style: {
                   display: "grid",
                   gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 1fr 1fr 100px",
@@ -737,14 +736,14 @@ export function Benchmarks() {
                   color: "#2c3e50"
                 },
                 children: [
-                  div({ text: "Benchmark" }),
-                  div({ text: "Vanilla JS (ms)" }),
-                  div({ text: "Organic UI (ms)" }),
-                  div({ text: "Duration Ratio" }),
-                  div({ text: "Vanilla JS (KB)" }),
-                  div({ text: "Organic UI (KB)" }),
-                  div({ text: "Memory Ratio" }),
-                  div({ text: "Action" })
+                  h.div({ text: "Benchmark" }),
+                  h.div({ text: "Vanilla JS (ms)" }),
+                  h.div({ text: "Organic UI (ms)" }),
+                  h.div({ text: "Duration Ratio" }),
+                  h.div({ text: "Vanilla JS (KB)" }),
+                  h.div({ text: "Organic UI (KB)" }),
+                  h.div({ text: "Memory Ratio" }),
+                  h.div({ text: "Action" })
                 ]
               }),
               // Table rows
@@ -752,7 +751,7 @@ export function Benchmarks() {
                 const result = () => results().find(r => r.name === benchmark.name)
                 const isRunning = () => running() === benchmark.id
                 
-                return div({
+                return h.div({
                   style: {
                     display: "grid",
                     gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 1fr 1fr 100px",
@@ -763,49 +762,49 @@ export function Benchmarks() {
                     alignItems: "center"
                   },
                   children: [
-                    div({ 
+                    h.div({ 
                       text: benchmark.name,
                       style: { fontWeight: "500" }
                     }),
-                    div({ 
+                    h.div({ 
                       text: () => result() ? formatNumber(result()!.vanillaJS) : "-",
                       style: () => ({
                         color: result() ? "#2c3e50" : "#ccc"
                       })
                     }),
-                    div({ 
+                    h.div({ 
                       text: () => result() ? formatNumber(result()!.organicUI) : "-",
                       style: () => ({
                         color: result() ? "#2c3e50" : "#ccc"
                       })
                     }),
-                    div({ 
+                    h.div({ 
                       text: () => result() ? formatRatio(result()!.ratio) : "-",
                       style: () => ({
                         fontWeight: "600",
                         color: result() ? getRatioColor(result()!.ratio) : "#ccc"
                       })
                     }),
-                    div({ 
+                    h.div({ 
                       text: () => result() ? formatNumber(result()!.vanillaMemory) : "-",
                       style: () => ({
                         color: result() ? "#2c3e50" : "#ccc"
                       })
                     }),
-                    div({ 
+                    h.div({ 
                       text: () => result() ? formatNumber(result()!.organicMemory) : "-",
                       style: () => ({
                         color: result() ? "#2c3e50" : "#ccc"
                       })
                     }),
-                    div({ 
+                    h.div({ 
                       text: () => result() ? formatRatio(result()!.memoryRatio) : "-",
                       style: () => ({
                         fontWeight: "600",
                         color: result() ? getRatioColor(result()!.memoryRatio) : "#ccc"
                       })
                     }),
-                    button({
+                    h.button({
                       text: () => isRunning() ? "..." : "Run",
                       onClick: () => runBenchmark(benchmark),
                       style: () => ({
@@ -823,7 +822,7 @@ export function Benchmarks() {
                 })
               }),
               // Footer rows - WGM calculations
-              div({
+              h.div({
                 style: () => ({
                   display: results().length === benchmarks.length ? "grid" : "none",
                   gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 1fr 1fr 100px",
@@ -836,11 +835,11 @@ export function Benchmarks() {
                   fontWeight: "600"
                 }),
                 children: [
-                  div({ 
+                  h.div({ 
                     text: "Weighted Geometric Mean",
                     style: { fontWeight: "700", color: "#2c3e50" }
                   }),
-                  div({ 
+                  h.div({ 
                     text: () => {
                       // Calculate WGM for Vanilla JS duration
                       let vanillaWeightedLogSum = 0
@@ -858,7 +857,7 @@ export function Benchmarks() {
                     },
                     style: { color: "#2c3e50" }
                   }),
-                  div({ 
+                  h.div({ 
                     text: () => {
                       // Calculate WGM for Organic UI duration
                       let organicWeightedLogSum = 0
@@ -876,11 +875,11 @@ export function Benchmarks() {
                     },
                     style: { color: "#2c3e50" }
                   }),
-                  div({ 
+                  h.div({ 
                     text: "-",
                     style: { color: "#999" }
                   }),
-                  div({ 
+                  h.div({ 
                     text: () => {
                       // Calculate WGM for Vanilla JS memory
                       let vanillaWeightedLogSum = 0
@@ -898,7 +897,7 @@ export function Benchmarks() {
                     },
                     style: { color: "#2c3e50" }
                   }),
-                  div({ 
+                  h.div({ 
                     text: () => {
                       // Calculate WGM for Organic UI memory
                       let organicWeightedLogSum = 0
@@ -916,14 +915,14 @@ export function Benchmarks() {
                     },
                     style: { color: "#2c3e50" }
                   }),
-                  div({ 
+                  h.div({ 
                     text: "-",
                     style: { color: "#999" }
                   }),
-                  div({ text: "" })
+                  h.div({ text: "" })
                 ]
               }),
-              div({
+              h.div({
                 style: () => ({
                   display: results().length === benchmarks.length ? "grid" : "none",
                   gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 1fr 1fr 100px",
@@ -936,15 +935,15 @@ export function Benchmarks() {
                   fontWeight: "600"
                 }),
                 children: [
-                  div({ 
+                  h.div({ 
                     text: "Relative WGM (Organic UI / Vanilla JS)",
                     style: { fontWeight: "700", color: "#2c3e50" }
                   }),
-                  div({ 
+                  h.div({ 
                     text: "1.00x",
                     style: { color: "#28a745", fontWeight: "700" }
                   }),
-                  div({ 
+                  h.div({ 
                     text: () => {
                       const score = calculateWeightedGeometricMean(results())
                       return formatRatio(score)
@@ -957,7 +956,7 @@ export function Benchmarks() {
                       }
                     }
                   }),
-                  div({ 
+                  h.div({ 
                     text: () => {
                       const score = calculateWeightedGeometricMean(results())
                       return formatRatio(score)
@@ -971,11 +970,11 @@ export function Benchmarks() {
                       }
                     }
                   }),
-                  div({ 
+                  h.div({ 
                     text: "1.00x",
                     style: { color: "#28a745", fontWeight: "700" }
                   }),
-                  div({ 
+                  h.div({ 
                     text: () => {
                       // Calculate memory WGM ratio
                       let organicWeightedLogSum = 0
@@ -1024,7 +1023,7 @@ export function Benchmarks() {
                       }
                     }
                   }),
-                  div({ 
+                  h.div({ 
                     text: () => {
                       // Calculate memory WGM ratio
                       let organicWeightedLogSum = 0
@@ -1074,14 +1073,14 @@ export function Benchmarks() {
                       }
                     }
                   }),
-                  div({ text: "" })
+                  h.div({ text: "" })
                 ]
               })
             ]
           }),
           
           // Average ratio
-          div({
+          h.div({
             style: () => ({
               display: results().length === benchmarks.length ? "block" : "none",
               marginTop: "20px",
@@ -1091,7 +1090,7 @@ export function Benchmarks() {
               textAlign: "center"
             }),
             children: [
-              div({
+              h.div({
                 text: "Average Performance Ratio",
                 style: {
                   fontSize: "18px",
@@ -1100,7 +1099,7 @@ export function Benchmarks() {
                   color: "#2c3e50"
                 }
               }),
-              div({
+              h.div({
                 text: () => {
                   const score = calculateWeightedGeometricMean(results())
                   return formatRatio(score)
@@ -1114,7 +1113,7 @@ export function Benchmarks() {
                   }
                 }
               }),
-              div({
+              h.div({
                 text: () => {
                   const score = calculateWeightedGeometricMean(results())
                   if (score < 1.1) return "🎉 Excellent! Nearly as fast as vanilla JS"
@@ -1128,7 +1127,7 @@ export function Benchmarks() {
                   marginTop: "10px"
                 }
               }),
-              div({
+              h.div({
                 text: "Using weighted geometric mean (js-framework-benchmark methodology)",
                 style: {
                   fontSize: "12px",
@@ -1143,7 +1142,7 @@ export function Benchmarks() {
       }),
       
       // About Section
-      div({
+      h.div({
         style: {
           marginTop: "40px",
           padding: "20px",
@@ -1151,7 +1150,7 @@ export function Benchmarks() {
           borderRadius: "8px"
         },
         children: [
-          div({
+          h.div({
             text: "📊 About These Benchmarks",
             style: {
               fontSize: "20px",
@@ -1160,7 +1159,7 @@ export function Benchmarks() {
               color: "#2c3e50"
             }
           }),
-          div({
+          h.div({
             text: "These benchmarks follow the official js-framework-benchmark specification used to compare all major JavaScript frameworks. Each test measures a specific DOM operation pattern and compares Organic UI's performance against vanilla JavaScript (the theoretical fastest implementation).",
             style: {
               fontSize: "14px",
@@ -1169,7 +1168,7 @@ export function Benchmarks() {
               lineHeight: "1.6"
             }
           }),
-          div({
+          h.div({
             text: "Methodology",
             style: {
               fontSize: "16px",
@@ -1178,7 +1177,7 @@ export function Benchmarks() {
               color: "#2c3e50"
             }
           }),
-          div({
+          h.div({
             style: {
               fontSize: "14px",
               color: "#666",
@@ -1186,25 +1185,25 @@ export function Benchmarks() {
               lineHeight: "1.6"
             },
             children: [
-              div({ 
+              h.div({ 
                 text: "• Each test compares Organic UI against vanilla JavaScript",
                 style: { marginBottom: "6px" }
               }),
-              div({ 
+              h.div({ 
                 text: "• Ratio = Organic UI time / Vanilla JS time (lower is better)",
                 style: { marginBottom: "6px" }
               }),
-              div({ 
+              h.div({ 
                 text: "• Overall score uses weighted geometric mean (same as official js-framework-benchmark)",
                 style: { marginBottom: "6px" }
               }),
-              div({ 
+              h.div({ 
                 text: "• Color coding: Green (<1.1x) = Excellent, Yellow (<1.3x) = Good, Orange (<1.5x) = Acceptable",
                 style: { marginBottom: "6px" }
               })
             ]
           }),
-          div({
+          h.div({
             text: "Framework Comparison (typical ratios)",
             style: {
               fontSize: "16px",
@@ -1213,7 +1212,7 @@ export function Benchmarks() {
               color: "#2c3e50"
             }
           }),
-          div({
+          h.div({
             style: {
               fontSize: "13px",
               color: "#666",
@@ -1221,12 +1220,12 @@ export function Benchmarks() {
               lineHeight: "1.8"
             },
             children: [
-              div({ text: "• Vanilla JS: 1.00x (baseline)" }),
-              div({ text: "• Solid: ~1.05x" }),
-              div({ text: "• Organic UI: ~1.08x (target)" }),
-              div({ text: "• Vue 3: ~1.15x" }),
-              div({ text: "• Svelte: ~1.20x" }),
-              div({ text: "• React: ~1.45x" })
+              h.div({ text: "• Vanilla JS: 1.00x (baseline)" }),
+              h.div({ text: "• Solid: ~1.05x" }),
+              h.div({ text: "• Organic UI: ~1.08x (target)" }),
+              h.div({ text: "• Vue 3: ~1.15x" }),
+              h.div({ text: "• Svelte: ~1.20x" }),
+              h.div({ text: "• React: ~1.45x" })
             ]
           })
         ]

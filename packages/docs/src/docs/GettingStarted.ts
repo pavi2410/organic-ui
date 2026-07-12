@@ -1,21 +1,21 @@
-import { div } from "organic-ui/components"
+import { h } from "organic-ui"
 import { CodeViewer } from "../components/CodeViewer.js"
 
 export function GettingStarted() {
 
-  return div({
+  return h.div({
     children: [
-      div({
+      h.div({
         text: "Getting Started",
         class: "docs-page-title"
       }),
-      div({
+      h.div({
         id: "installation",
         text: "Installation",
         class: "docs-section-title"
       }),
       CodeViewer({ code: "pnpm install organic-ui" }),
-      div({
+      h.div({
         id: "quick-example",
         text: "Quick Example",
         class: "docs-section-title"

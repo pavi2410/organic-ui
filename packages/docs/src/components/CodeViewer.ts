@@ -1,4 +1,4 @@
-import { div } from "organic-ui/components"
+import { h } from "organic-ui"
 import { CopyButton } from "./CopyButton.js"
 import { lexTypeScript } from "../utils/lexer.js"
 
@@ -64,7 +64,7 @@ function applyHighlighting(element: HTMLElement, code: string): () => void {
 
 // Highlighted code component using ref pattern
 function HighlightedCode(code: string, language: string) {
-  return div({
+  return h.div({
     text: code,
     style: { color: "#2c3e50" },
     ref: (el: HTMLDivElement) => {
@@ -78,7 +78,7 @@ function HighlightedCode(code: string, language: string) {
 }
 
 export function CodeViewer({ code, language = "plaintext" }: CodeViewerProps) {
-  return div({
+  return h.div({
     style: {
       position: "relative",
       background: "#f5f5f5",

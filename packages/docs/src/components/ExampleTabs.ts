@@ -1,5 +1,4 @@
-import { div, button, Switch } from "organic-ui/components"
-import { state } from "organic-ui/reactivity"
+import { h, state, Switch } from "organic-ui"
 import { CodeViewer } from "./CodeViewer.js"
 
 type Tab = "preview" | "code"
@@ -24,7 +23,7 @@ export function ExampleTabs({ preview, code }: ExampleTabsProps) {
     transition: "all 0.2s ease"
   })
 
-  return div({
+  return h.div({
     style: {
       border: "1px solid #e0e0e0",
       borderRadius: "8px",
@@ -33,19 +32,19 @@ export function ExampleTabs({ preview, code }: ExampleTabsProps) {
     },
     children: [
       // Tab buttons
-      div({
+      h.div({
         style: {
           display: "flex",
           borderBottom: "1px solid #e0e0e0",
           background: "#f8f9fa"
         },
         children: [
-          button({
+          h.button({
             text: "Preview",
             onClick: () => setActiveTab("preview"),
             style: () => tabButtonStyle(activeTab() === "preview")
           }),
-          button({
+          h.button({
             text: "Code",
             onClick: () => setActiveTab("code"),
             style: () => tabButtonStyle(activeTab() === "code")
@@ -53,7 +52,7 @@ export function ExampleTabs({ preview, code }: ExampleTabsProps) {
         ]
       }),
       // Tab content
-      div({
+      h.div({
         style: {
           padding: "20px",
           background: "white",

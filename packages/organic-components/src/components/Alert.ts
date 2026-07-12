@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "cva"
-import { div } from "organic-ui/components"
+import { h } from "organic-ui"
 import { cn } from "../lib/utils.js"
 
 const alertVariants = cva({
@@ -27,11 +27,11 @@ function AlertRoot({
   children,
   ...props
 }: AlertProps) {
-  return div({
+  return h.div({
     class: cn(alertVariants({ variant }), className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export interface AlertTitleProps {
@@ -44,11 +44,11 @@ export function AlertTitle({
   children,
   ...props
 }: AlertTitleProps) {
-  return div({
+  return h.div({
     class: cn("mb-1 font-medium leading-none tracking-tight", className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export interface AlertDescriptionProps {
@@ -61,11 +61,11 @@ export function AlertDescription({
   children,
   ...props
 }: AlertDescriptionProps) {
-  return div({
+  return h.div({
     class: cn("text-sm [&_p]:leading-relaxed", className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export const Alert = {

@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "cva"
-import { div } from "organic-ui/components"
+import { h } from "organic-ui"
 import { cn } from "../lib/utils.js"
 
 const badgeVariants = cva({
@@ -32,9 +32,9 @@ export function Badge({
   children,
   ...props
 }: BadgeProps) {
-  return div({
+  return h.div({
     class: cn(badgeVariants({ variant }), className),
     children,
     ...props
-  })
+  } as any)
 }

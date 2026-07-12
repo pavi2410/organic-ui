@@ -1,5 +1,4 @@
-import { state, effect } from "organic-ui/reactivity"
-import { Show } from "organic-ui/components"
+import { state, effect, Show } from "organic-ui"
 import { Introduction } from "./docs/Introduction.js"
 import { GettingStarted } from "./docs/GettingStarted.js"
 import { Reactivity } from "./docs/Reactivity.js"

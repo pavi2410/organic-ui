@@ -1,20 +1,20 @@
-import { div, p } from "organic-ui/components"
+import { h } from "organic-ui"
 import { CodeViewer } from "../components/CodeViewer.js"
 
 export function Reactivity() {
 
-  return div({
+  return h.div({
     children: [
-      div({
+      h.div({
         text: "Reactivity",
         class: "docs-page-title"
       }),
-      div({
+      h.div({
         id: "state",
         text: "state()",
         class: "docs-section-title"
       }),
-      p({
+      h.p({
         text: "Create reactive state that automatically updates the UI when changed.",
         class: "docs-text"
       }),
@@ -31,12 +31,12 @@ setCount(count() + 1)
 setCount(prev => prev + 1)`,
         language: "typescript"
       }),
-      div({
+      h.div({
         id: "effect",
         text: "effect()",
         class: "docs-section-title"
       }),
-      p({
+      h.p({
         text: "Run side effects that automatically re-run when dependencies change.",
         class: "docs-text"
       }),
@@ -50,7 +50,7 @@ effect(() => {
 setName("organic-ui")  // Logs: "Hello, organic-ui!"`,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "Effects can return a cleanup function that runs before the effect re-runs or when the component unmounts:",
         class: "docs-text"
       }),
@@ -70,12 +70,12 @@ effect(() => {
 // No manual disposal needed!`,
         language: "typescript"
       }),
-      div({
+      h.div({
         id: "memo",
         text: "memo()",
         class: "docs-section-title"
       }),
-      p({
+      h.p({
         text: "Create memoized computed values that only recompute when dependencies change.",
         class: "docs-text"
       }),
@@ -97,7 +97,7 @@ setFirstName("Jane")
 console.log(fullName())  // "Jane Doe"`,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "Memos are especially useful for expensive computations:",
         class: "docs-text"
       }),
@@ -116,10 +116,10 @@ console.log(memoizedSum())  // Calculates: 15
 console.log(memoizedSum())  // Cached: 15 (no recalculation!)`,
         language: "typescript"
       }),
-      div({
+      h.div({
         class: "docs-note",
         children: [
-          p({
+          h.p({
             text: "💡 See it in action:",
             style: {
               margin: "0 0 8px 0",
@@ -127,7 +127,7 @@ console.log(memoizedSum())  // Cached: 15 (no recalculation!)`,
               fontSize: "14px"
             }
           }),
-          p({
+          h.p({
             text: "Check out the interactive Memo example in the Examples section to see how memoized values only recompute when their dependencies change!",
             style: {
               margin: "0",

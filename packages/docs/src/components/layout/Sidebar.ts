@@ -1,4 +1,4 @@
-import { div, a } from "organic-ui/components"
+import { h } from "organic-ui"
 
 export interface SidebarSection {
   id: string
@@ -20,15 +20,15 @@ export function Sidebar({ sections, activeSection, isOpen, onSectionClick }: Sid
     ? "max-[768px]:translate-x-0" 
     : "max-[768px]:-translate-x-full"
   
-  return div({
+  return h.div({
     class: `${baseClasses} ${sizeClasses} ${mobileClasses} ${mobileStateClasses}`,
     children: [
       // Navigation items in scrollable container
-      div({
+      h.div({
         class: "flex-1 overflow-y-auto min-h-0",
         children: [
           ...sections.map(section =>
-            a({
+            h.a({
               href: `#${section.id}`,
               text: section.label,
               onClick: () => {
@@ -47,21 +47,21 @@ export function Sidebar({ sections, activeSection, isOpen, onSectionClick }: Sid
         ]
       }),
       // Links section at bottom
-      div({
+      h.div({
         class: "shrink-0 pt-3 border-t mt-3 border-slate-200 dark:border-slate-800",
         children: [
-          div({
+          h.div({
             text: "Links",
             class: "text-xs font-semibold uppercase tracking-wide mb-2 text-slate-500 dark:text-slate-400"
           }),
-          a({
+          h.a({
             href: "https://github.com/pavi2410/organic-ui",
             text: "GitHub",
             target: "_blank",
             rel: "noopener noreferrer",
             class: "block py-1.5 text-sm no-underline transition-colors duration-150 text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
           }),
-          a({
+          h.a({
             href: "https://www.npmjs.com/package/organic-ui",
             text: "npm",
             target: "_blank",

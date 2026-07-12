@@ -1,5 +1,4 @@
-import { state } from "organic-ui/reactivity"
-import { div, button, For, p } from "organic-ui/components"
+import { h, state, For } from "organic-ui"
 
 interface TodoItem {
   id: number
@@ -24,13 +23,13 @@ export function TodoList() {
     setItems(items().filter(item => item.id !== id))
   }
 
-  return div({
+  return h.div({
     style: {
       padding: "16px",
       fontFamily: "sans-serif"
     },
     children: [
-      div({
+      h.div({
         text: "Todo List",
         style: {
           fontSize: "20px",
@@ -38,7 +37,7 @@ export function TodoList() {
           marginBottom: "12px"
         }
       }),
-      div({
+      h.div({
         style: {
           marginBottom: "12px"
         },
@@ -46,7 +45,7 @@ export function TodoList() {
           For({
             each: items,
             key: (item, _index) => item.id,
-            children: (item) => div({
+            children: (item) => h.div({
               style: {
                 display: "flex",
                 alignItems: "center",
@@ -57,17 +56,17 @@ export function TodoList() {
                 borderRadius: "4px"
               },
               children: [
-                div({
+                h.div({
                   text: item.text,
                   style: { flex: "1" }
                 }),
-                button({
+                h.button({
                   text: "Remove",
                   onClick: () => removeItem(item.id)
                 })
               ]
             }),
-            fallback: p({
+            fallback: h.p({
               text: "No tasks yet. Add one to get started!",
               style: {
                 color: "#999",
@@ -77,7 +76,7 @@ export function TodoList() {
           })
         ]
       }),
-      button({
+      h.button({
         text: "Add Task",
         onClick: addItem
       })

@@ -1,8 +1,8 @@
-import { div, p } from "organic-ui/components";
-import type { Renderable } from "organic-ui/types";
+import { h } from "organic-ui"
+import type { Renderable } from "organic-ui"
 
 export function Card({ title, child }: { title: string; child: Renderable }) {
-  return div({
+  return h.div({
     style: {
       border: "1px solid #ccc",
       borderRadius: "8px",
@@ -11,7 +11,7 @@ export function Card({ title, child }: { title: string; child: Renderable }) {
       boxShadow: "0 1px 2px rgba(0,0,0,0.1)"
     },
     children: [
-      p({ text: () => title }),
+      h.p({ text: () => title }),
       child
     ]
   })

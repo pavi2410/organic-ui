@@ -1,4 +1,4 @@
-import { div, Show } from "organic-ui/components"
+import { h, Show } from "organic-ui"
 import { Header } from "./Header.js"
 import { Sidebar } from "./Sidebar.js"
 import type { SidebarSection } from "./Sidebar.js"
@@ -35,7 +35,7 @@ export function PageLayout({
   onTocItemClick,
   children
 }: PageLayoutProps) {
-  return div({
+  return h.div({
     class: "flex flex-col min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50",
     children: [
       // Header with search and theme toggle
@@ -53,7 +53,7 @@ export function PageLayout({
       }),
       
       // Body container with sidebar and main content
-      div({
+      h.div({
         class: "flex flex-1 mt-14",
         children: [
           // Sidebar
@@ -69,18 +69,18 @@ export function PageLayout({
           // Overlay for mobile menu
           Show({
             when: isMobileMenuOpen,
-            children: div({
+            children: h.div({
               onClick: onMenuToggle,
               class: "fixed inset-0 z-999 bg-black/30 backdrop-blur-sm"
             })
           }),
           
           // Main content area with TOC
-          div({
+          h.div({
             class: "flex-1 flex gap-6 px-4 md:px-6 py-6 mx-auto w-full max-w-[1280px]",
             children: [
               // Content
-              div({
+              h.div({
                 class: "content flex-1 max-w-[720px] leading-relaxed",
                 children
               }),

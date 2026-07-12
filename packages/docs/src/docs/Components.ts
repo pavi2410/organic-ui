@@ -1,28 +1,28 @@
-import { div, p } from "organic-ui/components"
+import { h } from "organic-ui"
 import { Button, Input, Card, Label, Textarea, Checkbox } from "organic-components"
 import { CodeViewer } from "../components/CodeViewer.js"
 
 export function Components() {
 
-  return div({
+  return h.div({
     children: [
-      div({
+      h.div({
         text: "Components",
         class: "docs-page-title"
       }),
-      p({
+      h.p({
         text: "Pre-built UI components styled with Tailwind CSS for common use cases.",
         class: "docs-text"
       }),
-      div({
+      h.div({
         text: "Button",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A customizable button component with variants and sizes.",
         class: "docs-text"
       }),
-      div({
+      h.div({
         class: "docs-example",
         style: { 
           padding: "20px", 
@@ -67,15 +67,15 @@ Button({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Input",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A styled input field.",
         class: "docs-text"
       }),
-      div({
+      h.div({
         class: "docs-example",
         style: { 
           padding: "20px", 
@@ -84,7 +84,7 @@ Button({
           marginBottom: "16px"
         },
         children: [
-          div({
+          h.div({
             style: { maxWidth: "300px" },
             children: [Input({
               placeholder: "Enter your name..."
@@ -101,15 +101,15 @@ Input({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Card",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A card component with header, title, description, content, and footer.",
         class: "docs-text"
       }),
-      div({
+      h.div({
         class: "docs-example",
         style: { 
           padding: "20px", 
@@ -118,7 +118,7 @@ Input({
           marginBottom: "16px"
         },
         children: [
-          div({
+          h.div({
             style: { maxWidth: "400px" },
             children: [Card.Root({
               children: [
@@ -160,15 +160,15 @@ Card.Root({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Textarea",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A multi-line text input component.",
         class: "docs-text"
       }),
-      div({
+      h.div({
         class: "docs-example",
         style: { 
           padding: "20px", 
@@ -177,7 +177,7 @@ Card.Root({
           marginBottom: "16px"
         },
         children: [
-          div({
+          h.div({
             style: { maxWidth: "400px" },
             children: [Textarea({
               placeholder: "Enter your message here...",
@@ -196,15 +196,15 @@ Textarea({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Checkbox",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A checkbox input component.",
         class: "docs-text"
       }),
-      div({
+      h.div({
         class: "docs-example",
         style: { 
           padding: "20px", 
@@ -231,11 +231,11 @@ Checkbox({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Radio",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A radio input component.",
         class: "docs-text"
       }),
@@ -250,11 +250,11 @@ Radio({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Switch",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A toggle switch component.",
         class: "docs-text"
       }),
@@ -267,11 +267,11 @@ Switch({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Tabs",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A tabs component for navigation.",
         class: "docs-text"
       }),
@@ -292,11 +292,11 @@ Tabs.Root({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Alert",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "An alert component for displaying messages.",
         class: "docs-text"
       }),
@@ -312,11 +312,11 @@ Alert.Root({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Dialog",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A modal dialog component.",
         class: "docs-text"
       }),
@@ -344,11 +344,11 @@ Dialog.Root({
 })`,
         language: "typescript"
       }),
-      div({
+      h.div({
         text: "Collapsible",
         class: "docs-subsection-title"
       }),
-      p({
+      h.p({
         text: "A collapsible content component.",
         class: "docs-text"
       }),

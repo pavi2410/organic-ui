@@ -1,5 +1,4 @@
-import { div, button, html } from "organic-ui/components"
-import { state } from "organic-ui/reactivity"
+import { h, state, html } from "organic-ui"
 
 export function HtmlDemo() {
   const [name, setName] = state("Alice")
@@ -8,7 +7,7 @@ export function HtmlDemo() {
   const names = ["Alice", "Bob", "Charlie", "Diana"]
   let currentIndex = 0
 
-  return div({
+  return h.div({
     style: {
       padding: "20px",
       border: "1px solid #e0e0e0",
@@ -45,13 +44,13 @@ export function HtmlDemo() {
         </div>
       `,
       
-      div({
+      h.div({
         style: {
           display: "flex",
           gap: "10px"
         },
         children: [
-          button({
+          h.button({
             text: "Change Name",
             onClick: () => {
               currentIndex = (currentIndex + 1) % names.length
@@ -66,7 +65,7 @@ export function HtmlDemo() {
               cursor: "pointer"
             }
           }),
-          button({
+          h.button({
             text: "Increment",
             onClick: () => setCount(c => c + 1),
             style: {
@@ -78,7 +77,7 @@ export function HtmlDemo() {
               cursor: "pointer"
             }
           }),
-          button({
+          h.button({
             text: "Reset",
             onClick: () => {
               setCount(0)

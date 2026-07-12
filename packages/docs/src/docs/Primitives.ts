@@ -1,24 +1,24 @@
-import { div, p } from "organic-ui/components"
+import { h } from "organic-ui"
 import { CodeViewer } from "../components/CodeViewer.js"
 
 export function Primitives() {
-  return div({
+  return h.div({
     children: [
-      div({
+      h.div({
         text: "Rendering Primitives",
         class: "docs-page-title"
       }),
-      p({
+      h.p({
         text: "organic-ui provides powerful rendering primitives for conditional rendering, list rendering, and direct HTML manipulation.",
         class: "docs-text"
       }),
 
-      div({
+      h.div({
         id: "show",
         text: "Show",
         class: "docs-section-title"
       }),
-      p({
+      h.p({
         text: "The Show component conditionally renders content based on a reactive condition. It efficiently updates when the condition changes.",
         class: "docs-text"
       }),
@@ -36,7 +36,7 @@ Show({
 })`,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "The Show component also supports a fallback for when the condition is false:",
         class: "docs-text"
       }),
@@ -49,12 +49,12 @@ Show({
         language: "typescript"
       }),
 
-      div({
+      h.div({
         id: "for",
         text: "For",
         class: "docs-section-title"
       }),
-      p({
+      h.p({
         text: "The For component efficiently renders lists of items with fine-grained reactivity. It only updates the specific items that change.",
         class: "docs-text"
       }),
@@ -72,7 +72,7 @@ For({
 })`,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "Use the key prop for efficient reconciliation when items can be reordered:",
         class: "docs-text"
       }),
@@ -91,7 +91,7 @@ For({
 })`,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "Use the fallback prop to show content when the list is empty:",
         class: "docs-text"
       }),
@@ -107,12 +107,12 @@ For({
         language: "typescript"
       }),
 
-      div({
+      h.div({
         id: "switch",
         text: "Switch",
         class: "docs-section-title"
       }),
-      p({
+      h.p({
         text: "The Switch component renders content based on matching a value against multiple cases, similar to a switch statement. It evaluates cases in order and renders the first matching case.",
         class: "docs-text"
       }),
@@ -132,7 +132,7 @@ Switch({
 })`,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "You can provide a fallback that renders when no cases match:",
         class: "docs-text"
       }),
@@ -149,7 +149,7 @@ Switch({
 })`,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "You can also provide a custom matcher function for complex comparisons:",
         class: "docs-text"
       }),
@@ -167,12 +167,12 @@ Switch({
         language: "typescript"
       }),
 
-      div({
+      h.div({
         id: "html",
         text: "html",
         class: "docs-section-title"
       }),
-      p({
+      h.p({
         text: "The html function allows you to render raw HTML strings directly. This is useful for integrating with external HTML content or when you need more control over the markup.",
         class: "docs-text"
       }),
@@ -185,7 +185,7 @@ html\`<div class="custom-component">
 </div>\``,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "You can interpolate values into the HTML string:",
         class: "docs-text"
       }),
@@ -199,17 +199,17 @@ html\`<article>
 </article>\``,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "Note: Be careful when using html with user-generated content to avoid XSS vulnerabilities. Always sanitize user input before rendering it as HTML.",
         class: "docs-text"
       }),
 
-      div({
+      h.div({
         id: "html-elements",
         text: "HTML Elements",
         class: "docs-section-title"
       }),
-      p({
+      h.p({
         text: "organic-ui provides functions for common HTML elements like div, button, p, a, ul, li, and more. These functions accept props for styling, event handlers, and children.",
         class: "docs-text"
       }),
@@ -240,12 +240,12 @@ a({
         language: "typescript"
       }),
 
-      div({
+      h.div({
         id: "ref",
         text: "ref - DOM Element Access",
         class: "docs-section-title"
       }),
-      p({
+      h.p({
         text: "Access the underlying DOM element after it's mounted. The ref callback receives the element and can optionally return a cleanup function.",
         class: "docs-text"
       }),
@@ -288,27 +288,27 @@ div({
 })`,
         language: "typescript"
       }),
-      p({
+      h.p({
         text: "The ref callback is called after the element is added to the DOM, ensuring you can safely interact with it. The cleanup function (if returned) is called when the component unmounts.",
         class: "docs-text"
       }),
 
-      div({
+      h.div({
         id: "best-practices",
         text: "Best Practices",
         class: "docs-section-title"
       }),
-      div({
+      h.div({
         class: "docs-list",
         children: [
-          p({ text: "• Use Show for simple conditional rendering of a single element or component" }),
-          p({ text: "• Use Switch when you have multiple mutually exclusive conditions to match against a value" }),
-          p({ text: "• Use For for rendering lists - it provides efficient updates and proper keying" }),
-          p({ text: "• Avoid using html with unsanitized user input to prevent XSS attacks" }),
-          p({ text: "• Prefer component functions over html when possible for better type safety" }),
-          p({ text: "• Use reactive getters (functions) for conditions in Show and Switch to enable automatic updates" }),
-          p({ text: "• Use the key prop in For when items can be reordered for better performance" }),
-          p({ text: "• Use ref for DOM manipulation that can't be done declaratively" })
+          h.p({ text: "• Use Show for simple conditional rendering of a single element or component" }),
+          h.p({ text: "• Use Switch when you have multiple mutually exclusive conditions to match against a value" }),
+          h.p({ text: "• Use For for rendering lists - it provides efficient updates and proper keying" }),
+          h.p({ text: "• Avoid using html with unsanitized user input to prevent XSS attacks" }),
+          h.p({ text: "• Prefer component functions over html when possible for better type safety" }),
+          h.p({ text: "• Use reactive getters (functions) for conditions in Show and Switch to enable automatic updates" }),
+          h.p({ text: "• Use the key prop in For when items can be reordered for better performance" }),
+          h.p({ text: "• Use ref for DOM manipulation that can't be done declaratively" })
         ]
       })
     ]

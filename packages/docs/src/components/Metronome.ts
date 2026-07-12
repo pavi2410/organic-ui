@@ -1,5 +1,4 @@
-import { div, button, p, input } from "organic-ui/components"
-import { state, effect } from "organic-ui/reactivity"
+import { h, state, effect } from "organic-ui"
 
 export function Metronome() {
   const [bpm, setBpm] = state(120)
@@ -55,7 +54,7 @@ export function Metronome() {
     }
   })
   
-  return div({
+  return h.div({
     style: {
       padding: "20px",
       border: "2px solid #3b82f6",
@@ -63,7 +62,7 @@ export function Metronome() {
       maxWidth: "400px"
     },
     children: [
-      div({
+      h.div({
         text: "Metronome",
         style: {
           fontSize: "20px",
@@ -74,7 +73,7 @@ export function Metronome() {
       }),
       
       // Beat indicator
-      div({
+      h.div({
         text: () => isPlaying() ? `♪ Beat ${beatCount()}` : "○ Stopped",
         style: () => ({
           fontSize: "32px",
@@ -88,7 +87,7 @@ export function Metronome() {
       }),
       
       // BPM display
-      p({
+      h.p({
         text: () => `${bpm()} BPM`,
         style: {
           fontSize: "24px",
@@ -100,7 +99,7 @@ export function Metronome() {
       }),
       
       // BPM slider
-      input({
+      h.input({
         type: "range",
         min: 40,
         max: 240,
@@ -115,7 +114,7 @@ export function Metronome() {
       }),
       
       // Play/Stop button
-      button({
+      h.button({
         text: () => isPlaying() ? "Stop" : "Start",
         onClick: () => {
           const wasPlaying = isPlaying()

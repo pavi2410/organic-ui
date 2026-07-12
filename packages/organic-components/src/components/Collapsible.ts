@@ -1,5 +1,5 @@
 import { cva } from "cva"
-import { div, button } from "organic-ui/components"
+import { h } from "organic-ui"
 import { cn } from "../lib/utils.js"
 
 const collapsibleVariants = cva({
@@ -20,11 +20,11 @@ function CollapsibleRoot({
   open,
   ...props
 }: CollapsibleProps) {
-  return div({
+  return h.div({
     class: cn(collapsibleVariants(), className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export interface CollapsibleTriggerProps {
@@ -39,12 +39,12 @@ export function CollapsibleTrigger({
   onClick,
   ...props
 }: CollapsibleTriggerProps) {
-  return button({
+  return h.button({
     class: cn("flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-90", className),
     onClick,
     children,
     ...props
-  })
+  } as any)
 }
 
 export interface CollapsibleContentProps {
@@ -61,11 +61,11 @@ export function CollapsibleContent({
 }: CollapsibleContentProps) {
   if (!open) return null
 
-  return div({
+  return h.div({
     class: cn("overflow-hidden text-sm transition-all", className),
     children,
     ...props
-  })
+  } as any)
 }
 
 export const Collapsible = {
